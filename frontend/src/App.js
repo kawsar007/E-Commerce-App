@@ -81,7 +81,6 @@ function App() {
         </header>
         
         <main>
-          
           <Route path="/" exact component={CarouselScreen}></Route> 
           <Route path="/cart/:id?" component={CartScreen}></Route>
           <Route path="/product/:id" component={ProductScreen}></Route>
@@ -94,8 +93,9 @@ function App() {
           <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
           <Route path="/about" component={AboutUs}/>
           <Route path="/contact" component={ContactScreen}></Route>
-          <PrivateRoute path="/profile" component={ProfileScreen}></PrivateRoute>      
-          <Route path="/" exact component={HomeScreen} />          
+          <PrivateRoute path="/profile" component={ProfileScreen}></PrivateRoute>     
+          
+          <Route path="/" exact component={HomeScreen} />  
         </main>
         <footer className="row center">© 2020 All right reserved.</footer>
       </div>
