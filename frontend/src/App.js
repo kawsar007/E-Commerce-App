@@ -2,10 +2,10 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter, Link, Route } from "react-router-dom";
 import "./App.css";
+import Footer from "./Components/Footer";
 import PrivateRoute from "./Components/PrivateRoute";
+import Showcase from "./Components/Showcase";
 import { signoutAction } from "./Store/Actions/UserAction";
-import AboutUs from "./ViewScreen/AboutUs";
-import CarouselScreen from "./ViewScreen/Carousel/CarouselScreen";
 import CartScreen from "./ViewScreen/CartScreen";
 import ContactScreen from "./ViewScreen/ContactScreen";
 import HomeScreen from "./ViewScreen/Home";
@@ -24,29 +24,23 @@ function App() {
   const { cartItems } = cart;
 
   const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin; 
+  const { userInfo } = userSignin;
 
   const dispatch = useDispatch();
-  // uisrey  fghfhgjhg
 
   const signoutHandler = () => {
-     dispatch(signoutAction())
-  }
+    dispatch(signoutAction());
+  };
 
   return (
     <BrowserRouter>
       <div className="grid-container">
         <header className="row">
-          <div>
-            <Link className="brand" to="/">
-             Gadget Shuttle 
+          <div className="headerLogo">
+            <Link className="link" to="/">
+             <span>Online Shope</span>
             </Link>
           </div>
-          {/* <div>
-             <Link className="headerItem" to="/">Home</Link>
-             <Link className="headerItem" to="/about">About Us</Link>
-             <Link className="headerItem" to="/contact">Contact</Link>             
-          </div> */}
           <div className="cartSignIn">
             <Link to="/cart">
               cart <i class="fa fa-shopping-cart"></i>
@@ -79,9 +73,10 @@ function App() {
             )}
           </div>
         </header>
-        
+         {/* <Showcase/> */}
+         {/* <Route path="/" exact component={Showcase}></Route> */}
         <main>
-          <Route path="/" exact component={CarouselScreen}></Route> 
+        <Route path="/" exact component={Showcase}></Route>
           <Route path="/cart/:id?" component={CartScreen}></Route>
           <Route path="/product/:id" component={ProductScreen}></Route>
           <Route path="/signin" component={SigninScreen}></Route>
@@ -91,16 +86,22 @@ function App() {
           <Route path="/placeorder" component={PlaceOrderScreen}></Route>
           <Route path="/order/:id" component={OrderScreen}></Route>
           <Route path="/orderhistory" component={OrderHistoryScreen}></Route>
-          <Route path="/about" component={AboutUs}/>
           <Route path="/contact" component={ContactScreen}></Route>
-          <PrivateRoute path="/profile" component={ProfileScreen}></PrivateRoute>     
-          
-          <Route path="/" exact component={HomeScreen} />  
+          <PrivateRoute
+            path="/profile"
+            component={ProfileScreen}
+          ></PrivateRoute>
+
+          <Route path="/" exact component={HomeScreen} />
         </main>
-        <footer className="row center">© 2020 All right reserved.</footer>
+        {/* <footer className="row center">© 2020 All right reserved.</footer> */}
+        <footer>
+        <Footer/>
+        </footer>
       </div>
     </BrowserRouter>
   );
 }
 
 export default App;
+

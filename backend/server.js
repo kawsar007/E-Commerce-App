@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import productRouter from './routers/ProductRouter.js';
 import userRouter from './routers/UserRouter.js';
 import orderRouter from './routers/OrderRouter.js';
+//const path = require('path');
 
 dotenv.config();
 
@@ -32,6 +33,15 @@ app.get('/', (req, res) => {
 app.use((err, req, res) => {
     res.status(500).send({ message: err.message });
 })
+
+// New Create
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('frontend/build'));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'frontend', 'build', index.html))
+    })
+}
 
 const port = process.env.PORT || 5000;
 

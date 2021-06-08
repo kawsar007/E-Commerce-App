@@ -16,6 +16,48 @@ body {
     height: 100%;
 }
 
+.navbar {
+    background-color: #047AED;
+    height: 70px;
+}
+
+
+/* New CSS Start */
+
+.companyLogo {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+
+/* New CSS End */
+
+.link {
+    display: flex;
+    align-items: center;
+}
+
+span {
+    font-size: 25px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 40px;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
 
 /* Layout */
 
@@ -33,19 +75,20 @@ header {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 10px;
+    padding-bottom: 2px;
     z-index: 1;
 }
 
 main {
     grid-area: main;
-    padding: 1rem;
+    /* padding: 1rem; */
+    width: 100%;
+    /* margin-top: 500px; */
 }
 
 footer {
     grid-area: footer;
-    background-color: #203040;
-    color: #ffffff;
+    width: 100%;
 }
 
 .cartSignIn {
@@ -128,7 +171,7 @@ button.small {
     color: salmon;
     /* border-bottom: 3px solid green; */
     text-align: center;
-    margin-top: -100px;
+    margin-top: 70px;
 }
 
 header a {
@@ -137,24 +180,9 @@ header a {
     font-size: 17px;
 }
 
-
-/* a.brand {
-    color: #ffffff;
-    font-size: 3rem;
-    font-weight: bold;
-} */
-
-a.brand {
-    color: #f16161;
-    font-size: 3rem;
-    font-weight: bold;
-    word-spacing: 5px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-}
-
-a.brand:hover {
-    color: #38e715;
+.productSection {
+    width: 100%;
+    margin: 0 auto;
 }
 
 .headerItem {
@@ -331,6 +359,7 @@ img.large {
 
 .dropdown:hover .dropdown-content {
     display: block;
+    z-index: 1;
 }
 
 
@@ -498,27 +527,6 @@ input[type="checkbox"] {
     transform: scale(1);
 }
 
-
-/* .card {
-    border: 0.1rem #c0c0c0 solid;
-    background-color: #f8f8f8;
-    border-radius: 0.5rem;
-    margin: 1rem;
-    height: 35rem;
-    width: 30rem;
-}
-
-.card-body {
-    padding: 1rem;
-}
-
-.card-body>* {
-    margin-bottom: 0.5rem;
-} */
-
-
-/* Team Component CSS */
-
 .TeamHeader {
     font-size: 4rem;
     color: rgb(25, 28, 202);
@@ -615,3 +623,6 @@ input[type="checkbox"] {
     background-color: #e74c3c;
     color: #44bd32;
 }
+
+
+/* Mobile view */

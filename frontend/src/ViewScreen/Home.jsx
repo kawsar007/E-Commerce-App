@@ -5,13 +5,14 @@ import Products from "../Components/Products";
 import LoadingBox from "../Components/LoadingBox";
 import MessageBox from "../Components/MessageBox";
 import { productListAction } from "../Store/Actions/ProductsActions";
-import OurTeam from "../Components/OurTeam";
 
 function HomeScreen() {
   const [search, setSearch] = useState("");
+
   const dispatch = useDispatch();
 
   const productsList = useSelector((state) => state.productsList);
+  console.log(productsList.products, "productsList");
   const { loading, error, products } = productsList;
 
   // Search 
@@ -25,8 +26,8 @@ function HomeScreen() {
   }, []);
 
   return (
-    <div>
-      <h1 className="productHeader">Our Product</h1>
+    <div className="productSection">
+      <h1 className="productHeader" >Our Product</h1>
       {/* Search Box Start */}
       <div className="search">
         <input type="checkbox" id="check" />
@@ -51,9 +52,11 @@ function HomeScreen() {
           {allProducts.map((product) => (
             <Products key={product._id} product={product} />
           ))}
+          
         </div>
+        
       )}
-      {/* <OurTeam/> */}
+     
     </div>
   );
 }
